@@ -94,24 +94,24 @@ public class decrypt_encrypt {
       printEncrypt(encryptedValues, out);
 
       File inputFile2 = new File("encrypted_message.txt");
-      PrintWriter out2 = new PrintWriter("result_message.txt");
+      PrintWriter out2 = new PrintWriter("decrypted_message.txt");
 
       Scanner scan = new Scanner(inputFile2);
-      String newText = scan.nextLine();
-      System.out.println("Encrypted message: " + newText + "\n");
-      String newTextVal = newText.toUpperCase();
+      String encryptedText = scan.nextLine();
+      System.out.println("Encrypted message: " + encryptedText + "\n");
+      String encryptedTextVal = encryptedText.toUpperCase();
       scan.close();
 
-      int[] numericalValues2 = new int[newTextVal.length()];
+      int[] numericalValues2 = new int[encryptedTextVal.length()];
       
-      fillArray(numericalValues2, newTextVal);
+      fillArray(numericalValues2, encryptedTextVal);
 
       int[] decryptedValues = new int[numericalValues2.length];
 
       decrypt(decryptedValues, decryptMatrix, numericalValues2);
       printDecrypt(decryptedValues, out2);
 
-      File decryptedFile = new File("result_message.txt");
+      File decryptedFile = new File("decrypted_message.txt");
       Scanner scanner = new Scanner(decryptedFile);
       String decryptedText = scanner.nextLine();
       System.out.println("Decrypted message: " + decryptedText + "\n");
